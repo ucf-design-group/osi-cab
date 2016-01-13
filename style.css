@@ -1,0 +1,1425 @@
+/*
+Theme Name: CAB
+Theme URI: http://underscores.me/
+Author: OSI Design Group
+Author URI: http://osi.ucf.edu/design-group
+Description: This is a theme based off of _s at underscores.me
+Version: 1.0
+License: GNU General Public License
+License URI: license.txt
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+
+/* CSS Resets */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block}a img{border:0}figure{position:relative}figure img{width:100%}
+
+
+@font-face {
+	font-family: 'Gotham-Medium';
+	src: url('webfonts/Gotham-Medium.eot');
+	src: local('☺'), url('webfonts/Gotham-Medium.woff') format('woff'), url('webfonts/Gotham-Medium.ttf') format('truetype'), url('webfonts/Gotham-Medium.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Gotham-Light-Italic';
+	src: url('webfonts/Gotham-LightItalic.eot');
+	src: local('☺'), url('webfonts/Gotham-LightItalic.woff') format('woff'), url('webfonts/Gotham-LightItalic.ttf') format('truetype'), url('webfonts/Gotham-LightItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Gotham-Light';
+	src: url('webfonts/Gotham-Light.eot');
+	src: local('☺'), url('webfonts/Gotham-Light.woff') format('woff'), url('webfonts/Gotham-Light.ttf') format('truetype'), url('webfonts/Gotham-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Gotham-Book';
+	src: url('webfonts/Gotham-Book.eot');
+	src: local('☺'), url('webfonts/Gotham-Book.woff') format('woff'), url('webfonts/Gotham-Book.ttf') format('truetype'), url('webfonts/Gotham-Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+body {
+	background: #000;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover,
+a:active { /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
+	outline: 0;
+}
+a img {
+	border: 0;
+}
+
+
+/* =Global
+----------------------------------------------- */
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6 {
+	clear: both;
+}
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+/* Text elements */
+p {
+	margin-bottom: 1.5em;
+}
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+ul {
+	list-style: disc;
+}
+ol {
+	list-style: decimal;
+}
+ul ul, ol ol, ul ol, ol ul {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin: 0 1.5em 1.5em;
+}
+b, strong {
+	font-weight: bold;
+}
+dfn, cite, em, i {
+	font-style: italic;
+}
+blockquote {
+	margin: 0 1.5em;
+}
+address {
+	margin: 0 0 1.5em;
+}
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	overflow: auto;
+	max-width: 100%;
+}
+code, kbd, tt, var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+small {
+	font-size: 75%;
+}
+big {
+	font-size: 125%;
+}
+figure {
+	margin: 0;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+th {
+	font-weight: bold;
+}
+button,
+input,
+select,
+textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+}
+button,
+input {
+	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid #ccc;
+	border-color: #ccc #ccc #bbb #ccc;
+	border-radius: 3px;
+	background: #fafafa; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fafafa 60%, #e6e6e6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#fafafa), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* IE10+ */
+	background: linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+	box-shadow: inset 0 2px 1px #fff;
+	color: rgba(0,0,0,.8);
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+	font-size: 12px;
+	font-size: 1.4rem;
+	padding: 1.12em 1.5em .88em;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+button:hover,
+html input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	background: #f5f5f5; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f5f5f5 60%, #dcdcdc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#f5f5f5), color-stop(100%,#dcdcdc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* IE10+ */
+	background: linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
+	border-color: #bbb #bbb #aaa #bbb;
+}
+button:focus,
+html input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+html input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb #bbb;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
+	box-shadow: inset 0 2px 2px rgba(0,0,0,.15);
+}
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
+	padding: 0; /* Addresses excess padding in IE8/9 */
+}
+input[type="search"] {
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
+input[type=text],
+input[type=email],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+	color: #111;
+}
+input[type=text],
+input[type=email] {
+	padding: 3px;
+}
+textarea {
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding-left: 3px;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+	width: 98%;
+}
+
+/* Links */
+a {
+	color: royalblue;
+}
+a:visited {
+	color: purple;
+}
+a:hover,
+a:focus,
+a:active {
+	color: midnightblue;
+}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Text meant only for screen readers */
+.assistive-text {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+
+
+p#alert {
+	background: #444015;
+	border: #e0d143 1px solid;
+	border-radius: 3px;
+	padding-left: 5px;
+	font-weight: 400;
+	color: #fff;
+}
+
+
+/* =Menu
+----------------------------------------------- */
+
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+.main-navigation ul {
+	list-style: none;
+	/*margin: 0;*/
+	padding-left: 0;
+}
+.main-navigation li {
+	float: left;
+	position: relative;
+}
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+.main-navigation ul ul {
+	-moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	display: none;
+	float: left;
+	position: absolute;
+		top: 1.5em;
+		left: 0;
+	z-index: 99999;
+}
+.main-navigation ul ul ul {
+	left: 100%;
+	top: 0;
+}
+.main-navigation ul ul a {
+	width: 200px;
+}
+.main-navigation ul ul li {
+}
+.main-navigation li:hover > a {
+}
+.main-navigation ul ul :hover > a {
+}
+.main-navigation ul ul a:hover {
+}
+.main-navigation ul li:hover > ul {
+	display: block;
+}
+.main-navigation li.current_page_item a,
+.main-navigation li.current-menu-item a {
+}
+
+/* Small menu */
+.menu-toggle {
+	cursor: pointer;
+}
+.main-small-navigation .menu {
+	display: none;
+}
+
+
+/* =Content
+----------------------------------------------- */
+
+.sticky {
+}
+.hentry {
+	margin: 0 0 1.5em;
+}
+.entry-meta {
+	clear: both;
+}
+.byline {
+	display: none;
+}
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+
+/* =Asides
+----------------------------------------------- */
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+
+/* =Media
+----------------------------------------------- */
+
+.site-header img,
+.entry-content img,
+.comment-content img,
+.widget img {
+	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+}
+.site-header img,
+.entry-content img,
+img[class*="align"],
+img[class*="wp-image-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+.site-header img,
+.entry-content img,
+img.size-full {
+	max-width: 100%;
+	width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+}
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+.wp-caption {
+	border: 1px solid #ccc;
+	max-width: 100%;
+}
+.wp-caption.aligncenter,
+.wp-caption.alignleft,
+.wp-caption.alignright {
+	margin-bottom: 1.5em;
+}
+.wp-caption img {
+	display: block;
+	margin: 1.2% auto 0;
+	max-width: 98%;
+}
+.wp-caption-text {
+	text-align: center;
+}
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+.site-content .gallery {
+	margin-bottom: 1.5em;
+}
+.gallery-caption {
+}
+.site-content .gallery a img {
+	border: none;
+	height: auto;
+	max-width: 90%;
+}
+.site-content .gallery dd {
+	margin: 0;
+}
+.site-content .gallery-columns-4 .gallery-item {
+}
+.site-content .gallery-columns-4 .gallery-item img {
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+
+/* =Navigation
+----------------------------------------------- */
+
+.site-content .site-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+.site-content .nav-previous {
+	float: left;
+	width: 50%;
+}
+.site-content .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* =Comments
+----------------------------------------------- */
+
+.bypostauthor {
+}
+
+/* =Widgets
+----------------------------------------------- */
+
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Search widget */
+#searchsubmit {
+	display: none;
+}
+
+/* =Layout for desktop version   
+----------------------------------------------- */
+	body{
+		background: url(images/bg.jpg) top left;
+		color: #cacaca;
+		font-family: 'Source Sans Pro', serif;
+		font-size: 16px;
+		font-weight: 300;
+		letter-spacing: .01em;
+	}
+	h1, h2, h3, h4, h5, h6{
+		color: #f3e35b;
+		font-family: 'Russo One', sans-serif;
+		letter-spacing: .05em;
+		margin: 0 0 .33em 0;
+		text-shadow: 1px 1px 0 #000,
+					 2px 2px 0 #000;
+		text-transform: uppercase;
+	}
+	h1{
+		font-size: 2.25em;
+	}
+	h2{
+		font-size: 1.68em;
+	}
+	.home-content h2{
+		margin: 1em 0 .33em 0;
+	}
+	h5{
+		font-family: 'Source Sans Pro', serif;
+		font-size: 1em;
+		font-weight: 300;
+		margin: 1em 0 .13em 0;
+		text-shadow: none;
+		text-transform: none;
+	}
+	.entry-content a{
+		color: #f3e35b;
+		border-bottom: 1px dotted #f3e35b;
+		padding: 0.1em 0.2em;
+		text-decoration: none;
+	}
+	.entry-content a:visited, .entry-content a:active{
+		color: #fdfdfd;
+	}
+	.entry-content a:hover{
+		background: #101010;
+		border: none;
+		color: #ccc;
+	}
+	header, #main, footer{
+		margin: auto;
+		max-width: 1280px;
+	}
+	header{
+		text-align: center;
+		padding: 20px 0 65px 0;
+	}
+	header ul{
+		margin: 0;
+	}
+	#main{
+		background: #202020;
+		padding: 20px 0 0 0;
+	}
+	#menu-primary{
+		text-align: center;
+		width: 100%;
+	}
+	#menu-primary li{
+		display: inline;
+		float: none;
+		margin: 0 0.4em;
+	}
+	#menu-primary a{
+		color: #cacaca;
+		display:inline-block;
+		font-family: 'Russo One', sans-serif;
+		font-size: 1.25em;
+		font-weight: 700;
+		letter-spacing: .2em;
+		padding: .3em .3em;
+		text-transform: uppercase;
+	}
+	#menu-primary li span{
+		color: #cacaca;
+		display: inline-block;
+		font-family: 'Source Sans Pro', serif;
+		font-size: .65em;
+		font-style: italic;
+		font-weight: 300;
+		letter-spacing: normal;
+		width: 100%;
+		text-transform: lowercase;
+	}
+	#menu-primary li a:hover, #menu-primary .current_page_item a{
+		background: #202020;
+		color: #f3e35b;	
+	}
+	.entry-content{
+		padding: 0 40px;
+	} 
+	footer{
+		background:transparent;
+		background: rgba(0,0,0,.5);
+		text-align: center;
+		/* IE FIX */
+       	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000); 
+       	zoom: 1;
+	}
+	footer p{
+		margin: 0;
+		padding: 0 0 5em 0;
+	}
+	#twitter, #facebook{
+		background: url(images/twitter@2x.png) no-repeat center #2ba9e1;
+		background-size: 50px;
+		width: 48px;
+		height: 48px;
+		position: absolute;
+		right: 0;
+		top: 50px;
+	}
+	#facebook{
+		background: url(images/facebook@2x.png) no-repeat center #3c5a98;
+		background-size: 50px;
+		top: 105px;
+	}
+	#twitter a, #facebook a{
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+
+/* =Home
+----------------------------------------------- */
+	/*iframe{
+		display: inline-block;
+		width: 40%;
+	}*/
+	.home-content{
+		display: inline-block;
+		margin: 0 0 0 3%;
+		vertical-align: top;
+		width: 55%;
+	}
+	.upcoming-events{
+		overflow-y: auto;
+	}
+	.upcoming-events .events{
+		float: left;
+		height: 250px;
+		padding: 0;
+		width: 33.33%;
+
+		background: url(images/testing.png) no-repeat center center;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/testing.png', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/testing.png', sizingMethod='scale')";
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.upcoming-events .events h3, .upcoming-events .events span{
+		background:transparent;
+		background: rgba(0,0,0,.8);
+		display: inline-block;
+		margin: 1em 0 0 0;
+		padding: .2em .8em;
+		/* IE FIX */
+       	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CD000000,endColorstr=#CD000000); 
+       	zoom: 1;
+	}
+	.upcoming-events .events span{
+		font-size: 1.5em;
+		font-weight: 300;
+		margin: 5em .5em 0 0;
+		text-transform: uppercase;
+	}
+
+	.home-features {
+		display: inline-block;
+		width: 40%;
+	}
+
+	.events a {
+		color: #ffffff;
+	}
+
+	.events a:focus {
+		outline: none;
+	}
+
+/* =Events
+----------------------------------------------- */
+	.page-template-events-php .site-content{
+		overflow: auto
+	}
+	.page-template-events-php h2{
+		margin: 1em 0 2em 0;
+		text-align: center;
+	}
+	.page-template-events-php h2:before{
+		content:"▼ ";
+	}
+	.page-template-events-php h3{
+		color: #cfcfcf;
+		background: #252525;
+		border-bottom: 1px solid #1c1c1c;
+		border-left: 1px solid #1c1c1c;
+		border-right: 1px solid #1c1c1c;
+		border-top: 1px solid #1c1c1c;
+		font-family: 'Source Sans Pro', serif;
+		font-size: 1.7em;
+		font-style: italic;
+		margin: 0 2.5%;
+		text-align: center;
+	}
+	.page-template-events-php h3 a{
+		color: #cfcfcf;
+		text-decoration: none;
+	}
+	.future{
+		float: left;
+		margin: 0 2.5% 0 0;
+		width: 47.5%;
+	}
+	.past{
+		float: left;
+		margin: 0 0 0 2.5%;
+		width: 47.5%;
+	}
+	.future .events, .past .events{
+		background: #333;
+		border-left: 1px solid #1c1c1c;
+		border-right: 1px solid #1c1c1c;
+		border-bottom: 1px solid #1c1c1c;
+       	margin: 0 0 3em 0;
+       	overflow-y: auto;
+       	padding: 2.5%;
+       	margin: 0 2.5% 5% 2.5%;
+	}
+	.future .event-date, .past .event-date{
+		float: left;
+		text-align: center;
+		width: 40%;
+	}
+	.future .events .event-date a, .past .events .event-date a{
+		display: inline-block;
+		float: none;
+		max-width: 30%;
+		padding: 5%;
+	}
+	.future .events .event-date a img, .past .events .event-date a img{
+		max-width: 100%;
+	}
+	.future .event-date .month, .past .event-date .month{
+		background: #f3e35b;
+		color: #2c2c2c;
+		font-family: 'Source Sans Pro', serif;
+		font-size: 1.5em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.future .event-date .day, .past .event-date .day{
+		background: #252525;
+		font-family: 'Source Sans Pro', serif;
+		font-size: 6em;
+		font-weight: 300;
+		padding: 0.2em 0;
+		text-shadow: 1px 1px 0 #111,
+					 2px 2px 0 #111,
+					 3px 3px 0 #111;
+	}
+	.future .event-date .time, .past .event-date .time{
+		background: #191919;
+		font-family: 'Source Sans Pro', serif;
+		font-size: 1.4em;
+		padding: 0.2em 0;
+	}
+	.future .events a, .past .events a{
+		display: block;
+		float: right;
+		max-width: 40%
+	}
+
+	/* Event Single Pages */
+	
+	.event-single {
+		text-align: center;
+	}
+	.event-single h1 {
+		text-align: left;
+	}
+	.event-info {
+		margin: auto;
+		display: inline-block;
+		text-align: left;
+		min-width: 720px;
+	}
+	.event-poster {
+		float: left;
+		padding: 0 10px 0 0;
+	}
+	.event-text {
+		float: left;
+		max-width: 32em;
+	}
+	.event-footer {
+		clear: both;
+		display: block;
+	}
+	@media (max-width: 720px) {
+		.event-info {
+			min-width: 98%;
+			padding: 0 1%;
+		}
+		.event-text, .event-poster {
+			display: block;
+			float: none;
+			width: 100%;
+			max-width: 100%;
+			padding: 0;
+			margin: auto;
+		}
+		.event-poster, .event-single h1 {
+			text-align: center;
+			margin: auto;
+		}
+	}
+
+/* =About
+----------------------------------------------- */
+	.page-template-about-php h2{
+		padding: .5em .25em;
+	}
+	.page-template-about-php .site-content{
+		overflow-y: hidden;
+	}
+	.page-template-about-php .entry-content{
+		margin: 0;
+	}
+	.page-template-about-php .committees{
+		float: left;
+		padding: 0 1%;
+		width: 24%;
+	}
+	.page-template-about-php .committees h2{
+		font-size: 1.8em;
+	}
+	.page-template-about-php .about-menu-large{
+		list-style: none;
+		margin: 0;
+	}
+	.page-template-about-php .about-menu-large a{
+		color: #fafafa;
+		display: inline-block;
+		font-size: 1.2em;
+		font-weight: 200;
+		padding: .5em .5em;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 100%;
+	}
+	.page-template-about-php .about-menu-large a:hover{
+		background: #171717;
+		color: #f3e35b;
+	}
+	.page-template-about-php article{
+		float: left;
+		padding: 0 1%;
+		width: 72%;
+	}
+	.page-template-about-php .entry-content .group-photo{
+		border: 5px solid #171717;
+		display: block;
+		height: 300px;
+		margin: 0 auto;
+		width: 98%;
+	}
+	.page-template-about-php .entry-content{
+		padding: 0;
+	}
+	.page-template-about-php .committee{
+		overflow: auto;
+	}
+	.page-template-about-php .committee-info{
+		float: left;
+		width: 33.3%;
+	}
+	.page-template-about-php .meeting-info{
+		float: left;
+		width: 31.3%;
+		padding: 0 1%;
+	}
+	.meeting-info h3, .committee-info h3, .director-info h3{
+		font-family: 'Source Sans Pro', serif;
+		font-size: 1em;
+		font-weight: 300;
+		margin: .5em 0 0 0;
+		text-shadow: none;
+		text-transform: none;
+	}
+	.page-template-about-php .featured-events{
+		float: left;
+		padding: 0;
+		width: 32.33%;
+		padding: 0;
+	}
+	.page-template-about-php .next-event{
+		border: 2px #181818 solid;
+		float: none;
+
+		height: 180px;
+		padding: 0;
+		width: 100%;
+		padding: 0;
+
+		background: url(images/testing.png) no-repeat center center;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/testing.png', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/testing.png', sizingMethod='scale')";
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.page-template-about-php .next-event h2{
+		background:transparent;
+		background: rgba(0,0,0,.8);
+		font-size: 1em;
+		margin: .2em 0;
+		padding: .3em .1em;
+		text-align: center;
+		/* IE FIX */
+       	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CD000000,endColorstr=#CD000000); 
+       	zoom: 1;
+	}
+	.page-template-about-php .next-event span{
+		background:transparent;
+		background: rgba(0,0,0,.8);
+		display: inline-block;
+		font-size: 1.2em;
+		margin: 3em 0 0 0;
+		padding: .3em .5em;
+		text-align: center;
+		/* IE FIX */
+       	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CD000000,endColorstr=#CD000000); 
+       	zoom: 1;
+	}
+	.page-template-about-php .director{
+		margin: 2em 0 0 0;
+	}
+	.page-template-about-php .director img{
+		border: 2px #181818 solid;
+	}
+	.page-template-about-php .director-info{
+		float: left;
+		width: 40%;
+	}
+	.page-template-about-php .director-about{
+		float: left;
+		margin: 0 0 0 5%;
+		width: 43%;
+	}
+	.page-template-about-php .bio{
+		float: right;
+		width: 60%;
+	}
+
+@media handheld, only screen and (max-width: 1000px) {
+
+	/* Small screens */
+
+	#ucf4_header{
+		left: -9999px;
+		position: absolute;
+		visibility: hidden;
+	}
+	/* Home */
+	.upcoming-events .events span{
+		font-size: 1em;
+		font-weight: 300;
+		margin: 8em .5em 0 0;
+		text-transform: uppercase;
+	}
+	.upcoming-events .events h3{
+		font-size: 1em;
+	}
+	/* About */
+	.page-template-about-php h2{
+		font-size: .95em;
+	}
+	.page-template-about-php .committees h2{
+		font-size: .95em;
+		padding: 7% 0;
+	}
+	.page-template-about-php #committee-menu li a{
+		font-size: 1em;
+	}
+	.page-template-about-php .committee{
+		padding: 1% 2.5%;
+	}
+	.page-template-about-php .committee-info{
+		width: 43%;
+	}
+	.page-template-about-php .meeting-info{
+		width:38%;
+		margin: 0 0 0 5%;
+		padding: 0 2%;
+	}
+	.page-template-about-php .featured-events{
+		clear: both;
+		padding: 0;
+		width: 96%;
+		padding: 0;
+	}
+	.page-template-about-php .director img{
+		width: 45%;
+	}
+	.page-template-about-php .bio{
+		width: 47%;
+	}
+	/* =Events
+	------------------------------------------- */
+	.page-template-events-php .site-content{
+		overflow: hidden;
+	}
+	.future, .past{
+		float: none;
+		margin: 0 auto 0 auto;
+		padding: 0;
+		width: 100%;
+	}
+	.future h2, .past h2{
+		font-size: 2em;
+	}
+	.future h3, .past h3{
+		font-weight: 300;
+		font-size: 1.5em;
+		font-style: normal;
+		margin: 0 auto;
+		text-shadow: none;
+		width: 60%;
+	}
+	.future .events, .past .events{
+		margin: 0 auto 2em auto;
+		padding: 0;
+		width: 60%;
+	}
+	.future .event-date, .past .event-date{
+		background: #252525;
+		float: left;
+		height: 100px;
+		padding: 0;
+		text-align: center;
+		width: 35%;
+	}
+	.future .events a, .past .events a{
+		display: block;
+		float: left;
+		width: 65%;
+		max-width: 65%;
+		padding: 0;
+		margin: 0;
+	}
+	.future .events a img, .past .events a img{
+		height: auto;
+		width: 100%;
+	}
+	.future .event-date .month, .past .event-date .month{
+		font-size: .9em;
+	}
+	.future .event-date .day, .past .event-date .day{
+		font-size: 3em;
+		padding: 0;
+	}
+	.future .event-date .time, .past .event-date .time{
+		font-size: 1em;
+	}
+
+}
+
+/* =Layout for mobile version   
+----------------------------------------------- */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	/* =Global
+	------------------------------------------- */
+	header{
+		padding: 0;
+		text-align: left;
+	}
+	.site-header img{
+		margin: 7% 10% 2.5% 0;
+		width: 82%;
+	}
+	#twitter, #facebook{
+		/* background: url(images/twitter@2x.png) no-repeat center #2ba9e1;
+		background-size: 50px;
+		width: 48px;
+		height: 48px;
+		position: absolute;
+		right: 0; */
+		top: 0px;
+	}
+	#facebook{
+		/* background: url(images/facebook@2x.png) no-repeat center #3c5a98;
+		background-size: 50px; */
+		top: 55px;
+	}
+	#twitter a, #facebook a{
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+	.menu-toggle{
+		color: #dedede;
+		background: #202020;
+		font-size: 1.35em;
+		padding: .5em 0 .5em 0;
+		text-align: center;
+	}
+	.menu-toggle:before{
+		content: '≡ ';
+		font-size: 1.5em;
+		text-shadow: none;
+		width: 32px;
+	}
+	#menu-primary{
+		background: #202020;
+		border-bottom: 1px solid rgba(255,255,255,.05);
+		border-top: 0.12em solid #f3e35b;
+		box-shadow: 0 1em 1em rgba(0,0,0,0.3);
+		list-style: none;
+		margin: -.33em 0 1em 0;
+	}
+	#menu-primary li{
+		border-bottom: 1px dotted #5f5f5f;
+		display: block;
+		margin: 0;
+	}
+	#menu-primary a{
+		display: inline-block;
+		padding: .5em 5%;
+		text-decoration: none;
+		text-align: left;
+		width: 90%;
+	}
+	#menu-primary li span{
+		display: inline;
+		margin: 5px 0 0 0;
+		position: absolute;
+		right: 5%;
+		text-align: right;
+		vertical-align: bottom;
+		width: auto;
+	}
+	.entry-content{
+		padding: 0;
+	}
+	/* =Home
+	------------------------------------------- */
+	/*iframe*/.home-features{
+		display: block;
+		margin: 0 auto 1em auto;
+		max-width: 96%;
+		min-width: 96%;
+	}
+	.home-content{
+		display: block;
+		margin: 0 auto 0 auto;
+		width: 96%;
+	}
+	.home-content h1, .home-content h2{
+		font-size: 1.1em;
+	}
+	.upcoming-events{
+		overflow-y: auto;
+	}
+	.upcoming-events .events{
+		float: none;
+		height: 210px;
+		padding: 0;
+		width: 100%;
+		margin: 0 auto 1em auto;
+	}
+	.upcoming-events .events span{
+		font-size: 1.5em;
+		font-weight: 300;
+		margin: 5em .5em 0 0;
+		text-transform: uppercase;
+	}
+	.upcoming-events .events span{
+		font-size: 1em;
+	}
+
+	/* =Events
+	------------------------------------------- */
+	.page-template-events-php .site-content{
+		overflow: hidden;
+	}
+	.future, .past{
+		float: none;
+		margin: 0 auto 0 auto;
+		padding: 0;
+		width: 100%;
+	}
+	.future h2, .past h2{
+		font-size: 1.2em;
+	}
+	.future h3, .past h3{
+		font-weight: 300;
+		font-size: 1.5em;
+		font-style: normal;
+		margin: 0;
+		text-shadow: none;
+		width: 100%;
+	}
+	.future .events, .past .events{
+		margin: 0 0 2em 0;
+		padding: 0;
+		width: 100%;
+	}
+	.future .event-date, .past .event-date{
+		background: #252525;
+		float: left;
+		height: 100px;
+		padding: 0;
+		text-align: center;
+		width: 35%;
+	}
+	.future .events a, .past .events a{
+		display: block;
+		float: left;
+		width: 65%;
+		max-width: 65%;
+		padding: 0;
+		margin: 0;
+	}
+	.future .events a img, .past .events a img{
+		height: auto;
+		width: 100%;
+	}
+	.future .event-date .month, .past .event-date .month{
+		font-size: .9em;
+	}
+	.future .event-date .day, .past .event-date .day{
+		font-size: 3em;
+		padding: 0;
+	}
+	.future .event-date .time, .past .event-date .time{
+		font-size: 1em;
+	}
+	/* =About
+	------------------------------------------- */
+	.page-template-about-php h2{
+		font-size: 1em;
+		text-align: center;
+	}
+	.page-template-about-php .committees h2{
+		font-size: 0.7em;
+	}
+	.page-template-about-php .committees{
+		float: none;
+		padding: 0;
+		width: 100%;
+	}
+	.page-template-about-php .committee-options{
+		/* background: #0f0f0f; */
+		overflow-x: scroll;
+		overflow-y: hidden;
+		width: 90%;
+		margin: 0 auto 2em auto;
+		padding: 0;
+	}
+	.page-template-about-php .committees ul{
+		font-size: 2em;
+		height: 2.5em;
+		overflow: hidden;
+		margin: 0;
+		width: 1100%;
+	}
+	.page-template-about-php .committees ul li{
+		float: left;
+		list-style: none;
+		margin: .5em 0 0 0;
+		padding: 0;
+		width: 9.09%;
+		text-align: center;
+	}
+	.page-template-about-php .committees ul li a{
+		color: #fafafa;
+		padding: 0;
+		text-decoration: none;
+	}
+	.page-template-about-php article{
+		float: left;
+		padding: 0 2%;
+		width: 96%;
+	}
+	.page-template-about-php .entry-content .group-photo{
+		border: 5px solid #171717;
+		display: block;
+		height: 300px;
+		margin: 0 auto;
+		width: 98%;
+	}
+	.page-template-about-php .committee-info, .page-template-about-php .meeting-info, .page-template-about-php .featured-event, .page-template-about-php .bio{
+		float: none;
+		margin: 0 auto 2em auto;
+		width: 90%;
+	}
+	
+
+/* =Provide higher res assets for iPhone 4
+----------------------------------------------- */
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5){
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+	h1, h2{
+		font-size: 0.9em;
+		letter-spacing: 0;
+		margin: 0;
+	}
+	.menu-primary-container a{
+		font-size: 1.2em;
+	}
+	#facebook{
+		background: url(images/facebook@2x.png) no-repeat center bottom #3c5a98;
+		background-size: 50px;
+	}
+	#twitter{
+		background: url(images/twitter@2x.png) no-repeat center #2ba9e1;
+		background-size: 50px;
+	}
+}
+
+
+

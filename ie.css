@@ -1,0 +1,52 @@
+/* =Home
+----------------------------------------------- */
+	iframe{
+		display: inline-block;
+		width: 40%;
+		/* IE FIX */
+		zoom: 1;
+		*display: inline;
+	}
+	.home-content{
+		display: inline-block;
+		margin: 0 0 0 3%;
+		vertical-align: top;
+		width: 55%;
+		/* IE FIX */
+		zoom: 1;
+		*display: inline;
+	}
+	.upcoming-events{
+		overflow-y: auto;
+	}
+	.upcoming-events .events{
+		float: left;
+		height: 250px;
+		padding: 0;
+		width: 33.33%;
+
+		333333: url(images/testing.png) no-repeat center center;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/testing.png', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/testing.png', sizingMethod='scale')";
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.upcoming-events .events h3, .upcoming-events .events span{
+		background:transparent;
+		background: rgba(0,0,0,.8);
+		display: inline-block;
+		margin: 1em 0 0 0;
+		padding: .2em .8em;
+		/* IE FIX */
+       	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CD000000,endColorstr=#CD000000); 
+       	zoom: 1;
+       	*display: inline;
+	}
+	.upcoming-events .events span{
+		font-size: 1.5em;
+		font-weight: 300;
+		margin: 5em .5em 0 0;
+		text-transform: uppercase;
+	}
